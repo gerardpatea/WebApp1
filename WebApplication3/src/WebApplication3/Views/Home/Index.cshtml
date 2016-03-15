@@ -1,0 +1,19 @@
+﻿@model WebApplication3.ViewModels.HomePageViewModel
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <h2>@Model.Greeting</h2>
+
+    <ol>
+        @foreach (var r in Model.Restaurants)
+        {
+            <li>@r.Name</li>
+        }
+    </ol>
+
+</body>
+</html>
