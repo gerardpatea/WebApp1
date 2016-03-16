@@ -1,11 +1,10 @@
 ﻿@model WebApplication3.Models.Restaurant
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <title></title>
-</head>
-<body>
+
+@{ 
+    ViewBag.Title = "Details";
+}
+
+<div>
     <h2>@Model.Name</h2>
-</body>
-</html>
+    <h2>@Model.Type</h2>
+</div>

@@ -1,29 +1,25 @@
-﻿@using WebApplication3.Models
-@model Restaurant
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <title>Create</title>
-</head>
-<body>
-    <h2>Create</h2>
-    
-    @using (Html.BeginForm())
-    {
-        <div>
-            @Html.LabelFor(m => m.Name)
-            @Html.TextBoxFor(m => m.Name)
-        </div>
+﻿@model Restaurant
+
+@{ 
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm())
+{
+    <div>
+        @Html.LabelFor(m => m.Name)
+        @Html.EditorFor(m => m.Name)
+        @Html.ValidationMessageFor(m => m.Name)
+    </div>
         <div>
             @Html.LabelFor(m => m.Type)
-            @Html.DropDownListFor(m => m.Type,Html.GetEnumSelectList(typeof(FoodType)))
+            @Html.DropDownListFor(m => m.Type, Html.GetEnumSelectList(typeof(FoodType)))
+            @Html.ValidationMessageFor(m => m.Type)
         </div>
         <div>
             <input type="submit" value="Save" />
         </div>
 
-    }
-
-</body>
-</html>
+}

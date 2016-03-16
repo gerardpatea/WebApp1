@@ -41,24 +41,33 @@ namespace WebApplication3.Controllers
         [HttpPost]
         public IActionResult Create(RestaurantEditViewModel model)
         {
-            var r = new Restaurant
+            if (this.ModelState.IsValid)
             {
-                Name = model.Name,
-                Type = model.Type
-            };
+                var r = new Restaurant
+                {
+                    Name = model.Name,
+                    Type = model.Type
+                };
 
-            _restaurantService.Add(r);
+                _restaurantService.Add(r);
 
-            return RedirectToAction("Index");
+                return RedirectToAction("Details", new { id = _restaurantService.Get().Count()});
+            }
+
+            return View();
         }
 
+        [HttpGet]
         public IActionResult Details(int id)
         {
             try
             {
-                var model = _restaurantService.Get()
-                    .ToList()[id];
-                return View(model);
+                var model = _restaurantService.Get(id);
+
+                if (model != null)
+                    return View(model);
+                else
+                    return RedirectToAction("Index");
             }
             catch (ArgumentOutOfRangeException)
             {

@@ -8,6 +8,8 @@ using Microsoft.AspNet.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 using WebApplication3.Services;
+using WebApplication3.Models;
+using Microsoft.Data.Entity;
 
 namespace WebApplication3
 {
@@ -27,9 +29,14 @@ namespace WebApplication3
         // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddEntityFramework()
+                     .AddSqlServer()
+                     .AddDbContext<RestaurantDbContext>(options => options.UseSqlServer(Configuration["database:connection"]));
             services.AddMvc();
+
+            services.AddSingleton(provider => Configuration);
             services.AddSingleton<IGreeter, Greeter>();
-            services.AddSingleton<IResturantService, RestaurantService>();
+            services.AddSingleton<IResturantService, SqlServerRestaurantService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

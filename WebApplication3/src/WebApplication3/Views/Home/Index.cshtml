@@ -1,19 +1,18 @@
 ﻿@model WebApplication3.ViewModels.HomePageViewModel
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <title></title>
-</head>
-<body>
-    <h2>@Model.Greeting</h2>
 
+@{ 
+    ViewBag.Title = "Home";
+}
+<div>
+    <h2>Welcome punks!</h2>
+</div>
     <ol>
         @foreach (var r in Model.Restaurants)
         {
-            <li>@r.Name</li>
+            <li><a asp-controller="Home" asp-action="Details" asp-route-id="@r.Id">@r.Name</a></li>
         }
     </ol>
 
-</body>
-</html>
+@section footer{
+    <div>@Model.Greeting</div>
+}
