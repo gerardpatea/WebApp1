@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using System.Security.Claims
+<!DOCTYPE html>
 
 <html>
 <head>
@@ -6,6 +7,19 @@
     <title>@ViewBag.Title</title>
 </head>
 <body>
+    <div>
+        @if(User.IsSignedIn())
+        {
+            <div>@User.GetUserName()</div>
+            <form asp-controller="Account" asp-action="Logout" method="post">
+                <input type="submit" value="Logout" />
+            </form>
+        }
+        else
+        {
+            <a asp-controller="Account" asp-action="Register">Register</a>
+        }
+    </div>
     <div>
         @RenderBody()
     </div>

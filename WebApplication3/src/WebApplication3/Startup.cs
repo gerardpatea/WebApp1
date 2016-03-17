@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using WebApplication3.Services;
 using WebApplication3.Models;
 using Microsoft.Data.Entity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace WebApplication3
 {
@@ -34,6 +35,9 @@ namespace WebApplication3
                      .AddDbContext<RestaurantDbContext>(options => options.UseSqlServer(Configuration["database:connection"]));
             services.AddMvc();
 
+            services.AddIdentity<User, IdentityRole>()
+                .AddEntityFrameworkStores<RestaurantDbContext>();
+
             services.AddSingleton(provider => Configuration);
             services.AddSingleton<IGreeter, Greeter>();
             services.AddSingleton<IResturantService, SqlServerRestaurantService>();
@@ -51,6 +55,8 @@ namespace WebApplication3
             }
 
             app.UseStatusCodePages();
+
+            app.UseIdentity();
 
             app.UseMvc(c =>
             {

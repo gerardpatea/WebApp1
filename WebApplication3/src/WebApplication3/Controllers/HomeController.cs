@@ -6,10 +6,12 @@ using Microsoft.AspNet.Mvc;
 using WebApplication3.Models;
 using WebApplication3.Services;
 using WebApplication3.ViewModels;
+using Microsoft.AspNet.Authorization;
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace WebApplication3.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         private IResturantService _restaurantService;
@@ -21,6 +23,7 @@ namespace WebApplication3.Controllers
             _greetingService = greetingService;
         }
 
+        [AllowAnonymous]
         public IActionResult Index()
         {
             var viewModel = new HomePageViewModel
@@ -33,6 +36,7 @@ namespace WebApplication3.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public IActionResult Create()
         {
             return View();
@@ -52,7 +56,7 @@ namespace WebApplication3.Controllers
                 _restaurantService.Add(r);
 
                 return RedirectToAction("Details", new { id = _restaurantService.Get().Count()});
-            }
+            } 
 
             return View();
         }

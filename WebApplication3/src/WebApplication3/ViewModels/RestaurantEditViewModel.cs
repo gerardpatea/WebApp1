@@ -12,6 +12,7 @@ namespace WebApplication3.ViewModels
         [Display(Name = "Restaurant Name")]
         [Required(AllowEmptyStrings = false)]
         public string Name { get; set; }
+
         public FoodType Type { get; set; }
     }
 }

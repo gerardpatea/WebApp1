@@ -6,12 +6,13 @@
 <div>
     <h2>Welcome punks!</h2>
 </div>
-    <ol>
+
         @foreach (var r in Model.Restaurants)
         {
-            <li><a asp-controller="Home" asp-action="Details" asp-route-id="@r.Id">@r.Name</a></li>
+            @Html.Partial("_Summary", r);
+
         }
-    </ol>
+
 
 @section footer{
     <div>@Model.Greeting</div>

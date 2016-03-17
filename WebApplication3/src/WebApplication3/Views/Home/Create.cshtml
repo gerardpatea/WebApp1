@@ -1,25 +1,26 @@
-﻿@model Restaurant
+﻿@model RestaurantEditViewModel
 
-@{ 
+@{
     ViewBag.Title = "Create";
 }
 
 <h2>Create</h2>
 
-@using (Html.BeginForm())
-{
+<form asp-controller="Home" asp-action="Create" method="post">
     <div>
-        @Html.LabelFor(m => m.Name)
-        @Html.EditorFor(m => m.Name)
-        @Html.ValidationMessageFor(m => m.Name)
+        <label asp-for="Name">Name:</label>
+        <input asp-for="Name" />
+        <span asp-validation-for="Name"></span>
     </div>
-        <div>
-            @Html.LabelFor(m => m.Type)
-            @Html.DropDownListFor(m => m.Type, Html.GetEnumSelectList(typeof(FoodType)))
-            @Html.ValidationMessageFor(m => m.Type)
-        </div>
-        <div>
-            <input type="submit" value="Save" />
-        </div>
 
-}
+    <div>
+        <label asp-for="Type">Type:</label>
+        <select asp-for="Type" asp-items="Html.GetEnumSelectList<FoodType>()"></select>
+        <span asp-validation-for="Type"></span>
+    </div>
+
+
+    <div>
+        <input type="submit" value="Save" />
+    </div>
+</form>
