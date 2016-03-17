@@ -1,0 +1,54 @@
+[33mcommit 1ea8737e507dc6196dda9b229bd56a8d7b76bb00[m
+Author: gerard patea <gpatea@guildlink.com.au>
+Date:   Wed Mar 16 14:00:12 2016 +1000
+
+    tutorial stuff
+
+[33mcommit 892cfa9f316664ff4c0683ded21f2601a62888eb[m
+Author: gerard patea <gpatea@guildlink.com.au>
+Date:   Tue Mar 15 16:28:05 2016 +1000
+
+    webapp3 initial checkin
+
+[33mcommit 0d88a0a1ea4b1ec664fd84615467a72f228ade92[m
+Merge: e2a7e90 cc075f2
+Author: gerard patea <gpatea@guildlink.com.au>
+Date:   Tue Mar 8 16:11:38 2016 +1000
+
+    Merge branch 'master' of https://github.com/gerardpatea/WebApp1
+
+[33mcommit e2a7e90a697200a2e9a5c298b898c3432d9ab921[m
+Author: gerard patea <gpatea@guildlink.com.au>
+Date:   Tue Mar 8 16:10:06 2016 +1000
+
+    webapp2 commit
+
+[33mcommit cc075f2a8ede91cbcc403ae338f1421b19377d0d[m
+Author: gerard patea <gpatea@guildlink.com.au>
+Date:   Tue Mar 8 13:49:14 2016 +1000
+
+    added gitignore file
+
+[33mcommit d1311e3451ee549289a57bc357addf83df4b18c7[m
+Author: gerard patea <gpatea@guildlink.com.au>
+Date:   Fri Mar 4 14:21:54 2016 +1000
+
+    added dapper and sqlite references
+
+[33mcommit 7abd105c1f3d87f047df942d81c945fbf430b695[m
+Author: gerard patea <gpatea@guildlink.com.au>
+Date:   Fri Mar 4 14:13:23 2016 +1000
+
+    more setup changes
+
+[33mcommit 0e50252cfbaf6b4a67418940c53d3b1354971537[m
+Author: gerard patea <gpatea@guildlink.com.au>
+Date:   Fri Mar 4 13:38:44 2016 +1000
+
+    more setup changes
+
+[33mcommit b7925b263385b223fe2b278130ad8ed9815ab7ae[m
+Author: gerard patea <gpatea@guildlink.com.au>
+Date:   Fri Mar 4 12:39:52 2016 +1000
+
+    initial commit
