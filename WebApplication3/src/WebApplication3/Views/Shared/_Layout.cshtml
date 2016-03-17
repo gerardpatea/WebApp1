@@ -26,6 +26,16 @@
                         <li><a asp-action="Login" asp-controller="Account">Login</a></li>
                         <li><a asp-action="Register" asp-controller="Account">Register</a></li>
                     </ul>
+@if (User.IsSignedIn())
+{
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="active">
+                            <form asp-controller="Account" asp-action="Logout" method="post" class="navbar-form">
+                                <input type="submit" value="Logout" class="btn btn-default" />
+                            </form>
+                        </li>
+                    </ul>
+}
                 </div><!--/.nav-collapse -->
             </div><!--/.container-fluid -->
         </nav>
