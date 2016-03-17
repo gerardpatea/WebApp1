@@ -1,11 +1,11 @@
 ﻿@model Restaurant
 
-<section>
-    <h1>@Model.Name</h1>
+<div class="container">
+    <h4>@Model.Name</h4>
     <div>
         <p> FoodType: @Model.Type </p>
     </div>
     <div>
         <a asp-controller="Home" asp-action="Details" asp-route-id="@Model.Id">Details</a>
     </div>
-</section>
+</div>

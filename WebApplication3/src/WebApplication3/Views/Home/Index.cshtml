@@ -1,17 +1,23 @@
 ﻿@model WebApplication3.ViewModels.HomePageViewModel
 
-@{ 
+@{
     ViewBag.Title = "Home";
 }
-<div>
-    <h2>Welcome punks!</h2>
-</div>
 
-        @foreach (var r in Model.Restaurants)
-        {
-            @Html.Partial("_Summary", r);
+<h2>Restaurants</h2>
 
-        }
+@foreach (var r in Model.Restaurants)
+{
+    <div class="col-lg-4">
+        <h4>@r.Name</h4>
+        <div>
+            <p> FoodType: @r.Type </p>
+        </div>
+        <div>
+            <a asp-controller="Home" asp-action="Details" asp-route-id="@r.Id">Details</a>
+        </div>
+    </div>
+}
 
 
 @section footer{

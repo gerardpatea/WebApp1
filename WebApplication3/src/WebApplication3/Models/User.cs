@@ -8,6 +8,6 @@ namespace WebApplication3.Models
 {
     public class User : IdentityUser
     {
-
+        public string TempName { get; set; }
     }
 }
