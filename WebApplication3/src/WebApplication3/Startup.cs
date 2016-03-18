@@ -33,10 +33,11 @@ namespace WebApplication3
             services.AddEntityFramework()
                      .AddSqlServer()
                      .AddDbContext<RestaurantDbContext>(options => options.UseSqlServer(Configuration["database:connection"]));
-            services.AddMvc();
 
             services.AddIdentity<User, IdentityRole>()
-                .AddEntityFrameworkStores<RestaurantDbContext>();
+              .AddEntityFrameworkStores<RestaurantDbContext>();
+
+            services.AddMvc();
 
             services.AddSingleton(provider => Configuration);
             services.AddSingleton<IGreeter, Greeter>();
